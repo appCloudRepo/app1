@@ -9,7 +9,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
 	<flow name="app2Flow" doc:id="4c8f5e71-d796-4b02-8417-6dc7c9f66163" >
-		<http:listener doc:name="Listener" doc:id="826dd3eb-4946-4344-a7ae-9a623ea9033a" config-ref="HTTP_Listener_config" path="/gitapp"/>
+		<http:listener doc:name="Listener" doc:id="826dd3eb-4946-4344-a7ae-9a623ea9033a" />
 		<ee:transform doc:name="Transform Message" doc:id="0b0e766e-8c89-49eb-aeee-055db1a21438" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
@@ -20,6 +20,5 @@ output application/json
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
-		<logger level="INFO" doc:name="Logger" doc:id="a3e2a41b-3408-45e0-8291-f6c6f2624811" message="#[payload]"/>
 	</flow>
 </mule>
